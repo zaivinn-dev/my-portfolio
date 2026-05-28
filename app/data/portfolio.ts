@@ -57,7 +57,7 @@ export const portfolioData: PortfolioData = {
   profile: {
     fullName: "Marvin M. Fegi",
     location: "Rodriguez, Rizal, Philippines",
-    headline: "Machine Learning & IoT Embedded System",
+    headline: "Web Developer & Machine Learning",
     subHeadline: "BS Computer Engineering Graduate — Colegio de Montalban",
     avatarInitials: "MF",
     scheduleLink: "https://calendly.com/d/cvr2-qkn-8fk/client",
@@ -88,14 +88,44 @@ export const portfolioData: PortfolioData = {
   ],
   experiences: [
     {
-      role: "BS Computer Engineering",
-      institution: "Colegio de Montalban",
+      role: "Machine Learning",
+      institution: "OpenCV · Python · Dataset Training",
       duration: "2026",
       current: true
     },
     {
-      role: "Hello World",
-      institution: "Wrote my first line of code",
+      role: "Android Studio",
+      institution: "Mobile Application Development",
+      duration: "2024"
+    },
+    {
+      role: "AutoCAD",
+      institution: "Engineering Design & Drafting",
+      duration: "2023"
+    },
+    {
+      role: "Object-Oriented Programming (OOP)",
+      institution: "Payroll System Project",
+      duration: "2023"
+    },
+    {
+      role: "C++",
+      institution: "Fundamentals of Systems Programming",
+      duration: "2022"
+    },
+    {
+      role: "BS Computer Engineering",
+      institution: "Colegio de Montalban",
+      duration: "2022"
+    },
+    {
+      role: "HTML · CSS · JavaScript",
+      institution: "Web Development Fundamentals",
+      duration: "2020"
+    },
+    {
+      role: "ICT",
+      institution: "AICS",
       duration: "2020"
     }
   ],

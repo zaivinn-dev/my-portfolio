@@ -26,7 +26,7 @@ export default function Home() {
   }, []);
 
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
-  
+
   // Keyboard navigation & body scroll lock
   useEffect(() => {
     if (lightboxIndex === null) return;
@@ -44,46 +44,63 @@ export default function Home() {
   return (
     <div className="min-h-screen text-gray-900 dark:text-gray-100 transition-colors duration-300 font-sans antialiased">
 
-      {/* Top Navbar */}
-      <nav className="max-w-5xl mx-auto px-6 py-6 flex justify-end">
-        <ThemeToggle />
-      </nav>
-
       {/* Main Core Layout Grid Blocks */}
-      <main className="max-w-5xl mx-auto px-6 pb-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <main className="max-w-5xl mx-auto px-6 pt-12 pb-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
 
         {/* Left Side Profile Tier */}
         <div className="lg:col-span-2 space-y-12">
-          <section className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+          <section className="flex gap-5 sm:gap-8 items-start w-full">
             {data.profile.avatarUrl ? (
               <img
                 src={data.profile.avatarUrl}
                 alt={data.profile.fullName}
-                className="w-32 sm:w-40 h-32 sm:h-40 rounded-2xl object-cover shadow-md shrink-0 bg-gray-50 dark:bg-zinc-900"
+                className="w-40 sm:w-44 md:w-48 h-40 sm:h-44 md:h-48 rounded-2xl object-cover shadow-md shrink-0 bg-gray-50 dark:bg-zinc-900"
               />
             ) : (
-              <div className="w-32 sm:w-40 h-32 sm:h-40 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white text-4xl font-extrabold shadow-md shrink-0">
+              <div className="w-40 sm:w-44 md:w-48 h-40 sm:h-44 md:h-48 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white text-4xl sm:text-4xl md:text-5xl font-extrabold shadow-md shrink-0">
                 {data.profile.avatarInitials}
               </div>
             )}
-            <div className="text-center sm:text-left space-y-3 w-full">
-              <div>
-                <h1 className="text-3xl font-extrabold tracking-tight">{data.profile.fullName}</h1>
-                <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">📍 {data.profile.location}</p>
+            <div className="flex-1 min-w-0 space-y-2 sm:space-y-3">
+              <div className="flex justify-between items-center sm:items-start gap-4">
+                <h1 className="text-xl sm:text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight">
+                  {data.profile.fullName}
+                </h1>
+                <div className="shrink-0">
+                  <ThemeToggle />
+                </div>
               </div>
-              <p className="text-lg font-semibold text-blue-600 dark:text-blue-400">{data.profile.headline}</p>
 
-              <div className="flex flex-wrap gap-3 justify-center sm:justify-start pt-1">
+              <div>
+                <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm mt-0.5">📍 {data.profile.location}</p>
+                <p className="text-sm sm:text-lg font-semibold text-blue-600 dark:text-blue-400 mt-1.5 leading-snug">
+                  {data.profile.headline}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-2 pt-1">
                 {data.profile.scheduleLink && (
                   <CalendlyButton
                     url={data.profile.scheduleLink}
-                    className="inline-flex items-center gap-1.5 bg-black text-white dark:bg-white dark:text-black px-4 py-2 rounded-xl font-medium text-xs hover:opacity-90 transition cursor-pointer"
+                    className="inline-flex items-center gap-1 bg-black text-white dark:bg-white dark:text-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl font-semibold text-[10px] sm:text-xs hover:opacity-90 transition cursor-pointer"
                   />
                 )}
-                <a href={data.socialLinks.email} className="inline-flex items-center border border-gray-300 dark:border-zinc-800 px-4 py-2 rounded-xl font-medium text-xs hover:bg-gray-100 dark:hover:bg-zinc-900 transition">Send Email</a>
-                {data.profile.blogLink && (
-                  <a href={data.profile.blogLink} target="_blank" rel="noreferrer" className="inline-flex items-center border border-gray-300 dark:border-zinc-800 px-4 py-2 rounded-xl font-medium text-xs hover:bg-gray-100 dark:hover:bg-zinc-900 transition">Read My Blog</a>
-                )}
+                {/* {data.profile.blogLink && (
+                  <a
+                    href={data.profile.blogLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center border border-gray-300 dark:border-zinc-800 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl font-semibold text-[10px] sm:text-xs hover:bg-gray-100 dark:hover:bg-zinc-900 transition"
+                  >
+                    My Blog
+                  </a>
+                )} */}
+                <a
+                  href={data.socialLinks.email}
+                  className="inline-flex items-center border border-gray-300 dark:border-zinc-800 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl font-semibold text-[10px] sm:text-xs hover:bg-gray-100 dark:hover:bg-zinc-900 transition"
+                >
+                  Send Email
+                </a>
               </div>
             </div>
           </section>
@@ -119,6 +136,59 @@ export default function Home() {
               ))}
             </div>
           </section>
+
+          {/* Academic Projects Block */}
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-bold tracking-tight">Academic Projects</h2>
+              <span className="text-xs text-gray-400 dark:text-gray-500 font-mono">{data.projects.length} projects</span>
+            </div>
+            <div className="space-y-3">
+              {(showAllProjects ? data.projects : data.projects.slice(0, 3)).map((project: Project, idx: number) => (
+                <div
+                  key={idx}
+                  className="group relative p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white dark:bg-[#1a1a1a] hover:border-blue-300 dark:hover:border-blue-800 hover:shadow-md transition-all duration-200 overflow-hidden"
+                >
+                  {/* Accent bar */}
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-500 dark:bg-blue-600 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+
+                  <div className="flex items-start gap-3">
+                    {/* Number badge */}
+                    <span className="shrink-0 w-6 h-6 mt-0.5 flex items-center justify-center rounded-full bg-gray-100 dark:bg-zinc-800 text-[10px] font-bold text-gray-500 dark:text-gray-400 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/40 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
+                      {idx + 1}
+                    </span>
+
+                    <div className="flex-1 min-w-0 space-y-2">
+                      <h4 className="font-bold text-sm text-gray-900 dark:text-white leading-snug group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-200">
+                        {project.title}
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5 pt-0.5">
+                        {project.stack.map((s: string) => (
+                          <span
+                            key={s}
+                            className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-zinc-700"
+                          >
+                            {s}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {data.projects.length > 3 && (
+              <button
+                onClick={() => setShowAllProjects(prev => !prev)}
+                className="w-full mt-1 py-2 px-4 rounded-xl border border-gray-300 dark:border-zinc-800 text-xs font-semibold text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-zinc-900 transition cursor-pointer text-center focus:outline-none"
+              >
+                {showAllProjects ? "Show Less ↑" : `View All ${data.projects.length} Projects ↓`}
+              </button>
+            )}
+          </div>
         </div>
 
         {/* Right Side Experience Timeline Module */}
@@ -157,27 +227,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Academic Projects Block */}
-          <div className="space-y-4">
-            <h2 className="text-xl font-bold tracking-tight">Academic Projects</h2>
-            {(showAllProjects ? data.projects : data.projects.slice(0, 3)).map((project: Project, idx: number) => (
-              <div key={idx} className="p-5 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-gray-100 dark:bg-[#1e1e1e] space-y-3">
-                <h4 className="font-bold text-sm text-gray-900 dark:text-white">{project.title}</h4>
-                <p className="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">{project.description}</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {project.stack.map((s: string) => <span key={s} className="text-[10px] font-mono px-2 py-0.5 rounded bg-gray-200 dark:bg-zinc-800 text-gray-700 dark:text-gray-300">{s}</span>)}
-                </div>
-              </div>
-            ))}
-            {data.projects.length > 3 && (
-              <button
-                onClick={() => setShowAllProjects(prev => !prev)}
-                className="w-full mt-2 py-2 px-4 rounded-xl border border-gray-300 dark:border-zinc-800 text-xs font-semibold text-gray-750 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-zinc-900 transition cursor-pointer text-center focus:outline-none"
-              >
-                {showAllProjects ? "Show Less" : "View All"}
-              </button>
-            )}
-          </div>
         </div>
       </main>
 
