@@ -42,15 +42,6 @@ export default function RootLayout({
               } catch (e) {}
             })();`}
         </Script>
-        {/* Calendly popup widget */}
-        <link
-          href="https://assets.calendly.com/assets/external/widget.css"
-          rel="stylesheet"
-        />
-        <Script
-          src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="lazyOnload"
-        />
         {children}
       </body>
     </html>

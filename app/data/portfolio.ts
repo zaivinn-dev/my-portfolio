@@ -2,6 +2,9 @@ export interface Project {
   title: string;
   stack: string[];
   description: string;
+  screenshots?: string[];
+  subtitle?: string;
+  links?: { label: string; href: string }[];
 }
 
 export interface ExperienceItem {
@@ -20,6 +23,7 @@ export interface MembershipItem {
   name: string;
   link?: string;
 }
+
 
 export interface TechCategory {
   title: string;
@@ -57,12 +61,12 @@ export const portfolioData: PortfolioData = {
   profile: {
     fullName: "Marvin M. Fegi",
     location: "Rodriguez, Rizal, Philippines",
-    headline: "Web Developer & Machine Learning",
+    headline: "Web Developer | Machine Learning",
     subHeadline: "BS Computer Engineering Graduate — Colegio de Montalban",
     avatarInitials: "MF",
-    scheduleLink: "https://calendly.com/d/cvr2-qkn-8fk/client",
+    scheduleLink: "https://calendly.com/fegimarvin/30min",
     blogLink: "https://dev.to",
-    avatarUrl: "https://scontent.fmnl9-7.fna.fbcdn.net/v/t39.30808-6/481273849_1674133450148721_4898358854647540873_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=104&ccb=1-7&_nc_sid=fe5ecc&_nc_eui2=AeEH_GfdFPh72hz6fOwonhjICv0zzXd0dzIK_TPNd3R3MqV5wuPvKiZ-6En2wTBiSYpSZ1X1TUDwMf8EA3WI_puQ&_nc_ohc=__8PqLXWeTwQ7kNvwEM6pb7&_nc_oc=Adpzr5uk9hkWuv7a13Z2Lk4Q8Laf7MvPy9x5GId2E6CPOQTLr-1XSWWxYOHjV1VwqYA&_nc_zt=23&_nc_ht=scontent.fmnl9-7.fna&_nc_gid=2fFwSvtDhUgs2yh6GlPQIQ&_nc_ss=7b2a8&oh=00_Af55WQreWQ0KtKseq3RcCNqTovbZPcF4t5eiiZ7_chOeGA&oe=6A1C7D4C",
+    avatarUrl: "https://scontent.fmnl9-7.fna.fbcdn.net/v/t39.30808-6/481273849_1674133450148721_4898358854647540873_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEH_GfdFPh72hz6fOwonhjICv0zzXd0dzIK_TPNd3R3MqV5wuPvKiZ-6En2wTBiSYpSZ1X1TUDwMf8EA3WI_puQ&_nc_ohc=Iy2BDcNJMtgQ7kNvwHG72fF&_nc_oc=AdoYTaB_bbdGPe1gyexJWMQEa35zEb7oZCX_dCdexWkO_9DL9FHMnL2iDsoQ1fM2o5s&_nc_zt=23&_nc_ht=scontent.fmnl9-7.fna&_nc_gid=ANYEMF_nBiwa47loqaqI8Q&_nc_ss=7b2a8&oh=00_Af__LHOD1x2a8jSiZdSKQwuo8qSZNAXQwyNJhkrF4sGvCw&oe=6A27094C",
   },
   about: [
     "I am a Computer Engineering graduate from Colegio de Montalban with a passion for bridging the gap between hardware and software. My expertise spans developing responsive web applications and designing IoT systems, integrating microcontrollers like the ESP32 with full-stack web interfaces.",
@@ -134,6 +138,13 @@ export const portfolioData: PortfolioData = {
       title: "Multi-Modal Access Locker System with Object Detection and Web-Based Monitoring",
       stack: ["Python", "HTML", "PostgreSQL", "IoT", "4th Year Thesis"],
       description: "A thesis project implementing a smart locker system that utilizes object detection to identify users and authorize access. Includes a web-based monitoring dashboard for real-time usage tracking and access logs.",
+      screenshots: [
+        "/images/screenshot.png",
+        "/images/screenshot2.png",
+        "/images/screenshot3.png",
+        "/images/screenshot4.png",
+        "/images/screenshot5.jpg"
+      ]
     }
     , {
       title: "SafeValve: ESP32-Based Home Automated Gas Valve Control with Earthquake and Gas Leak Detection",
@@ -146,7 +157,6 @@ export const portfolioData: PortfolioData = {
       description: "A mobile application that allows users to create, view, and manage school and community events.",
     }
   ],
-
   certifications: [
     {
       title: "NCII Computer System Servicing",

@@ -1,15 +1,18 @@
 'use client';
 
-import { useState, useCallback, useRef, useEffect } from 'react';
+import Image from 'next/image';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { portfolioData, Project, ExperienceItem, CertificationItem } from './data/portfolio';
 import { ThemeToggle } from './components/ThemeToggle';
-import { CalendlyButton } from './components/CalendlyModal';
+import ProjectModal from './components/ProjectModal';
 
 export default function Home() {
   const data = portfolioData;
   const scrollRef = useRef<HTMLDivElement>(null);
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
 
   const scrollNext = useCallback(() => {
     if (scrollRef.current) {
@@ -43,33 +46,37 @@ export default function Home() {
 
   return (
     <div className="min-h-screen text-gray-900 dark:text-gray-100 transition-colors duration-300 font-sans antialiased">
+      {/* Top action row */}
+      <div className="max-w-5xl mx-auto px-6 pt-6 flex justify-end">
+        <ThemeToggle />
+      </div>
 
       {/* Main Core Layout Grid Blocks */}
-      <main className="max-w-5xl mx-auto px-6 pt-12 pb-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <main className="max-w-5xl mx-auto px-6 pt-6 pb-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
 
         {/* Left Side Profile Tier */}
         <div className="lg:col-span-2 space-y-12">
-          <section className="flex gap-5 sm:gap-8 items-start w-full">
+          <section className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-center sm:items-start text-center sm:text-left w-full">
             {data.profile.avatarUrl ? (
-              <img
+              <Image
                 src={data.profile.avatarUrl}
                 alt={data.profile.fullName}
-                className="w-40 sm:w-44 md:w-48 h-40 sm:h-44 md:h-48 rounded-2xl object-cover shadow-md shrink-0 bg-gray-50 dark:bg-zinc-900"
+                width={192}
+                height={192}
+                unoptimized
+                priority
+                sizes="(min-width: 640px) 192px, 128px"
+                className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-2xl object-cover shadow-md shrink-0 bg-gray-50 dark:bg-zinc-900"
               />
             ) : (
-              <div className="w-40 sm:w-44 md:w-48 h-40 sm:h-44 md:h-48 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white text-4xl sm:text-4xl md:text-5xl font-extrabold shadow-md shrink-0">
+              <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white text-3xl sm:text-4xl md:text-5xl font-extrabold shadow-md shrink-0">
                 {data.profile.avatarInitials}
               </div>
             )}
             <div className="flex-1 min-w-0 space-y-2 sm:space-y-3">
-              <div className="flex justify-between items-center sm:items-start gap-4">
-                <h1 className="text-xl sm:text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight">
-                  {data.profile.fullName}
-                </h1>
-                <div className="shrink-0">
-                  <ThemeToggle />
-                </div>
-              </div>
+              <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight">
+                {data.profile.fullName}
+              </h1>
 
               <div>
                 <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm mt-0.5">📍 {data.profile.location}</p>
@@ -78,27 +85,31 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-2 pt-1">
+              <div className="flex flex-wrap justify-center sm:justify-start gap-2 pt-1">
                 {data.profile.scheduleLink && (
-                  <CalendlyButton
-                    url={data.profile.scheduleLink}
-                    className="inline-flex items-center gap-1 bg-black text-white dark:bg-white dark:text-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl font-semibold text-[10px] sm:text-xs hover:opacity-90 transition cursor-pointer"
-                  />
-                )}
-                {/* {data.profile.blogLink && (
                   <a
-                    href={data.profile.blogLink}
+                    href={data.profile.scheduleLink}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center border border-gray-300 dark:border-zinc-800 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl font-semibold text-[10px] sm:text-xs hover:bg-gray-100 dark:hover:bg-zinc-900 transition"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold text-white transition hover:bg-blue-700"
                   >
-                    My Blog
+                    <svg className="w-3.5 h-3.5 sm:w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                      <line x1="16" y1="2" x2="16" y2="6" />
+                      <line x1="8" y1="2" x2="8" y2="6" />
+                      <line x1="3" y1="10" x2="21" y2="10" />
+                    </svg>
+                    Schedule Call
                   </a>
-                )} */}
+                )}
                 <a
                   href={data.socialLinks.email}
-                  className="inline-flex items-center border border-gray-300 dark:border-zinc-800 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl font-semibold text-[10px] sm:text-xs hover:bg-gray-100 dark:hover:bg-zinc-900 transition"
+                  className="inline-flex items-center justify-center gap-2 border border-gray-300 dark:border-zinc-800 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl font-semibold text-[10px] sm:text-xs hover:bg-gray-100 dark:hover:bg-zinc-900 transition"
                 >
+                  <svg className="w-3.5 h-3.5 sm:w-4 h-4 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
                   Send Email
                 </a>
               </div>
@@ -137,17 +148,21 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Academic Projects Block */}
+          {/* Projects Block */}
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-bold tracking-tight">Academic Projects</h2>
+              <h2 className="text-xl font-bold tracking-tight">Projects</h2>
               <span className="text-xs text-gray-400 dark:text-gray-500 font-mono">{data.projects.length} projects</span>
             </div>
             <div className="space-y-3">
               {(showAllProjects ? data.projects : data.projects.slice(0, 3)).map((project: Project, idx: number) => (
                 <div
                   key={idx}
-                  className="group relative p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white dark:bg-[#1a1a1a] hover:border-blue-300 dark:hover:border-blue-800 hover:shadow-md transition-all duration-200 overflow-hidden"
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { setSelectedProject(project); setIsProjectModalOpen(true); } }}
+                  onClick={() => { setSelectedProject(project); setIsProjectModalOpen(true); }}
+                  className="group relative p-4 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white dark:bg-[#1a1a1a] hover:border-blue-300 dark:hover:border-blue-800 hover:shadow-md transition-all duration-200 overflow-hidden cursor-pointer"
                 >
                   {/* Accent bar */}
                   <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-500 dark:bg-blue-600 rounded-l-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
@@ -284,11 +299,12 @@ export default function Home() {
                     onClick={() => setLightboxIndex(idx)}
                     className="relative aspect-square w-48 sm:w-60 rounded-2xl overflow-hidden border border-gray-250 dark:border-zinc-850 bg-gray-100 dark:bg-[#1e1e1e] shrink-0 shadow-sm cursor-pointer group/image"
                   >
-                    <img
+                    <Image
                       src={src}
                       alt={`Gallery image ${idx + 1}`}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 ease-in-out"
-                      loading="lazy"
+                      fill
+                      sizes="19rem"
+                      className="object-cover transition-transform duration-300 ease-in-out"
                     />
                     {/* Hover overlay for a subtle darkening effect (removed zoom icon) */}
                     <div className="absolute inset-0 bg-black/0 group-hover/image:bg-black/10 transition-colors duration-300" />
@@ -388,6 +404,16 @@ export default function Home() {
         </div>
       </footer>
 
+      {/* Project details modal */}
+      <ProjectModal
+        key={selectedProject?.title ?? 'project-modal'}
+        project={selectedProject}
+        open={isProjectModalOpen}
+        onClose={() => setIsProjectModalOpen(false)}
+      />
+
+
+
       {/* Lightbox Modal */}
       {lightboxIndex !== null && data.galleryImages[lightboxIndex] && (
         <div
@@ -414,11 +440,15 @@ export default function Home() {
           </span>
 
           {/* Image */}
-          <img
-            src={data.galleryImages[lightboxIndex]}
-            alt={`Gallery image ${lightboxIndex + 1}`}
-            className="relative z-10 max-w-[90vw] max-h-[85vh] object-contain rounded-xl shadow-2xl"
-          />
+          <div className="relative z-10 w-[min(90vw,1200px)] h-[min(85vh,900px)]">
+            <Image
+              src={data.galleryImages[lightboxIndex]}
+              alt={`Gallery image ${lightboxIndex + 1}`}
+              fill
+              priority
+              className="object-contain rounded-xl shadow-2xl"
+            />
+          </div>
         </div>
       )}
     </div>
