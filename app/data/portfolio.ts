@@ -66,7 +66,7 @@ export const portfolioData: PortfolioData = {
     avatarInitials: "MF",
     scheduleLink: "https://calendly.com/fegimarvin/30min",
     blogLink: "https://dev.to",
-    avatarUrl: "https://scontent.fmnl9-7.fna.fbcdn.net/v/t39.30808-6/481273849_1674133450148721_4898358854647540873_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEH_GfdFPh72hz6fOwonhjICv0zzXd0dzIK_TPNd3R3MqV5wuPvKiZ-6En2wTBiSYpSZ1X1TUDwMf8EA3WI_puQ&_nc_ohc=Iy2BDcNJMtgQ7kNvwHG72fF&_nc_oc=AdoYTaB_bbdGPe1gyexJWMQEa35zEb7oZCX_dCdexWkO_9DL9FHMnL2iDsoQ1fM2o5s&_nc_zt=23&_nc_ht=scontent.fmnl9-7.fna&_nc_gid=ANYEMF_nBiwa47loqaqI8Q&_nc_ss=7b2a8&oh=00_Af__LHOD1x2a8jSiZdSKQwuo8qSZNAXQwyNJhkrF4sGvCw&oe=6A27094C",
+    avatarUrl: "/marvin.jpg",
   },
   about: [
     "I am a Computer Engineering graduate from Colegio de Montalban with a passion for bridging the gap between hardware and software. My expertise spans developing responsive web applications and designing IoT systems, integrating microcontrollers like the ESP32 with full-stack web interfaces.",
@@ -75,11 +75,11 @@ export const portfolioData: PortfolioData = {
   techStack: [
     {
       title: "Frontend & Mobile",
-      items: ["HTML5", "CSS3", "JavaScript (ES6+)", "Tailwind CSS", "Bootstrap", "Android Studio (Java/Kotlin)"]
+      items: ["HTML5", "CSS3", "Bootstrap", "Android Studio (Java/Kotlin)"]
     },
     {
       title: "Backend & Systems",
-      items: ["Python", "PHP", "Laravel Framework", "C++", "C", "MySQL", "PostgreSQL", "MongoDB", "Object-Oriented Programming (OOP)"]
+      items: ["Python", "PHP", "Laravel Framework", "C++", "MySQL", "Supabase", "Object-Oriented Programming (OOP)"]
     },
     {
       title: "IoT & Embedded Systems",
@@ -150,11 +150,6 @@ export const portfolioData: PortfolioData = {
       title: "SafeValve: ESP32-Based Home Automated Gas Valve Control with Earthquake and Gas Leak Detection",
       stack: ["HTML", "CSS", "JavaScript", "IoT", "3rd Year Capstone"],
       description: "An IoT safety system utilizing an ESP32 microcontroller to automatically shut off household gas valves when gas leaks or seismic activity are detected. Features a web interface for status monitoring.",
-    }
-    , {
-      title: "Event Management System",
-      stack: ["Android Studio", "MySQL", "2nd Year"],
-      description: "A mobile application that allows users to create, view, and manage school and community events.",
     }
   ],
   certifications: [
