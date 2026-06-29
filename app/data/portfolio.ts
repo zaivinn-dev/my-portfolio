@@ -69,8 +69,7 @@ export const portfolioData: PortfolioData = {
     avatarUrl: "/photo.jpg",
   },
   about: [
-    "I am a Computer Engineering graduate from Colegio de Montalban with a passion for bridging the gap between hardware and software. My expertise spans developing responsive web applications and designing IoT systems, integrating microcontrollers like the ESP32 with full-stack web interfaces.",
-    "With a solid foundation in frontend technologies (HTML, CSS, JavaScript, Tailwind CSS, Bootstrap) alongside backend frameworks (PHP, Laravel, Python), I focus on building secure, scalable, and user-centric solutions. I am actively involved in industry communities and continuously explore emerging tech like machine learning to solve real-world challenges."
+    "Highly motivated and detail-oriented Computer Engineering graduate from Colegio de Montalban with a strong foundation in hardware-software integration. Proven technical capability in developing IoT-based automation systems using ESP32 microcontrollers, building responsive web applications, and implementing secure databases. Proficient in networking, system troubleshooting, and scripting, and backed by industry-recognized certifications from Google and Cisco.",
   ],
   techStack: [
     {
@@ -78,8 +77,12 @@ export const portfolioData: PortfolioData = {
       items: ["HTML5", "CSS3", "Bootstrap", "Android Studio (Java/Kotlin)"]
     },
     {
-      title: "Backend & Systems",
-      items: ["Python", "PHP", "Laravel Framework", "C++", "MySQL", "Supabase", "Object-Oriented Programming (OOP)"]
+      title: "Frameworks",
+      items: ["Laravel Framework", "ReactJS", "Next.js", "Tailwind CSS", "Bootstrap"]
+    },
+    {
+      title: "Backend",
+      items: ["Python", "PHP", "MySQL", "Supabase"]
     },
     {
       title: "IoT & Embedded Systems",
