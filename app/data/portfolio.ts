@@ -168,11 +168,15 @@ export const portfolioData: PortfolioData = {
   ],
   speakingText: "Available for speaking at events about software development and emerging technologies.",
   galleryImages: [
-    "https://scontent.fmnl9-2.fna.fbcdn.net/v/t1.15752-9/675748026_942085125283595_6499311147627584701_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeF4leZTjAU6Jn3lLsChogVIFiakLdu8jVkWJqQt27yNWdyjsTaOprFNblwbMUtTwO0K5WeRvZVGgWByfj08M1hT&_nc_ohc=kT2DU9pp4VEQ7kNvwFXjuJR&_nc_oc=Adq0s9AFwSB792UB10FF4_Ki5ZUldZ808L7FDSosBid9NqZX0EUKi2Ixrogv7IDP7bE&_nc_zt=23&_nc_ht=scontent.fmnl9-2.fna&_nc_ss=7b2a8&oh=03_Q7cD5QHnGmCA2e1Xr2TQjDQjeu--NKfSm1DQFECk_WXRn7MhLg&oe=6A3E25B2",
-    "https://scontent.fmnl9-4.fna.fbcdn.net/v/t1.15752-9/682436292_1504785981040210_3878603667010371451_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGuKDFdFG19J59gj5LdtIOiZq_eR556g0Fmr95HnnqDQTEFJAxjEtwKjKZjwO5xkuh0OU6BRjk__TQxhBtfXv35&_nc_ohc=1zYLlWnJ5OIQ7kNvwEWV81t&_nc_oc=AdoN9HR5spkAW3oyWaBuDr4UChATCkk5oMjhIXDBUuH4-c0zBOk15mMt-S27oUPNJ5w&_nc_zt=23&_nc_ht=scontent.fmnl9-4.fna&_nc_ss=7b2a8&oh=03_Q7cD5QFtXjbVx3W4-UB-CdlAUEDq1JLrlm9cQuO9blShLET33w&oe=6A3D712F",
-    "https://scontent.fmnl9-3.fna.fbcdn.net/v/t1.15752-9/661282089_946478798240754_7145089147781124502_n.jpg?stp=dst-jpg_s2048x2048_tt6&_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeHGaZhFXnDUiBUr9v6NnFeIvcQT4B6vVVm9xBPgHq9VWbzutp2dM4OI0HkhGYlTiMo2hwliKULIw3GgUjBLD5Z9&_nc_ohc=veq7U0OEjQUQ7kNvwGRjBw4&_nc_oc=Adq_ZF3WvfTgB6KyHevlRSIoWiJi4WYIXwuCEJXJaAFYbQpWFKhquWZlS0L2f5qrr2M&_nc_zt=23&_nc_ht=scontent.fmnl9-3.fna&_nc_ss=7b2a8&oh=03_Q7cD5QGIOR_5RvsPKgMZz1hwsugbaDbKU2cVjn23n-lPtJulWw&oe=6A3D5D9A",
-    "https://scontent.fmnl9-6.fna.fbcdn.net/v/t1.15752-9/675557531_1889726675070446_1464807126987828529_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeETI9WxACcJeoK9fAggX9yXIbxQ3RJzYmMhvFDdEnNiY6lXSaQvW3b_rgoRvVPL2B1uJ1ej_xCh4EibdkeEhV7K&_nc_ohc=fSOpU6rXmUkQ7kNvwFDUn_W&_nc_oc=Adr4m8GRZRaB1xzvlgcyqRL6uu86eRPBEUYD5WGDadnLsKQgG_lg3xb5NlOQ5cBHP-Y&_nc_zt=23&_nc_ht=scontent.fmnl9-6.fna&_nc_ss=7b2a8&oh=03_Q7cD5QHr_1FKafEr91kZfeRwAMqrXcB7VcnAdxcHXxCsYJ8k6A&oe=6A3D5AA8",
-    "https://scontent.fmnl9-6.fna.fbcdn.net/v/t1.15752-9/670093201_971580002124037_9119337374343101934_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeEEbc-Zz-RuLFreNcg7IfXnGm9JoBB2uigab0mgEHa6KLnFg0ClWirDAKaljBrGJVVWud5ZVQWQusQxgnZvCFSF&_nc_ohc=wnJ2wAs1hesQ7kNvwFtLcvy&_nc_oc=AdpfSxvp2oamWgcwLBCxa07CrkwUlPZAQID2s7u_qzqvWOw6YH7Za5h92t7rzIBZVNk&_nc_zt=23&_nc_ht=scontent.fmnl9-6.fna&_nc_ss=7b2a8&oh=03_Q7cD5QHoN4q6SVQUZ7ZmItn2-mo4eJLWmk6xZJ1MljmmCSCE2w&oe=6A3D8035"
+    "/images/photo_1.jpg",
+    "/images/photo_2.jpg",
+    "/images/photo_3.jpg",
+    "/images/photo_4.jpg",
+    "/images/photo_5.jpg",
+    "/images/photo_6.jpg",
+    "/images/photo_7.jpg",
+    "/images/photo_8.jpg",
+    "/images/photo_9.jpg"
   ],
   socialLinks: {
     linkedin: "https://www.linkedin.com/in/fegi-marvin-m-aa53b936a/",
