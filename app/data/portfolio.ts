@@ -149,11 +149,6 @@ export const portfolioData: PortfolioData = {
         "/images/screenshot5.jpg"
       ]
     }
-    , {
-      title: "SafeValve: ESP32-Based Home Automated Gas Valve Control with Earthquake and Gas Leak Detection",
-      stack: ["HTML", "CSS", "JavaScript", "IoT", "3rd Year Capstone"],
-      description: "An IoT safety system utilizing an ESP32 microcontroller to automatically shut off household gas valves when gas leaks or seismic activity are detected. Features a web interface for status monitoring.",
-    }
   ],
   certifications: [
     {
