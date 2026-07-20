@@ -61,7 +61,7 @@ export const portfolioData: PortfolioData = {
   profile: {
     fullName: "Marvin M. Fegi",
     location: "Rodriguez, Rizal, Philippines",
-    headline: "IoT Embedded System | Machine Learning",
+    headline: "Computer Engineer | Embedded System & IoT Integration | Web Developer",
     subHeadline: "BS Computer Engineering Graduate — Colegio de Montalban",
     avatarInitials: "MF",
     scheduleLink: "https://calendly.com/fegimarvin/30min",
